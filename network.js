@@ -19,7 +19,6 @@ class network {
 				costs[costs_index].push(inputs[i].value);
 			}
 			costs_committed = true;
-			}
 		}
 
 //		var change_it = document.getElementById("submit");
@@ -42,8 +41,8 @@ class network {
 //				var response = document.getElementById("Response").value;
 //				if (response === 'x' || response === 'X') response = 99999;
 //				this.cost[i].push(response);
-			}
-		}
+//			}
+//		}
 
 //		this.cost[0][0] = 99999;
 //		this.cost[0][1] = 10;
