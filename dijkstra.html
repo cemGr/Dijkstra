@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<h1>Ladies and Gentlemen: The Dijkstra Algorithm</h1>
+	</head>
+	<body>
+		<script src="test.js"></script>
+		<p>How many nodes does your network have?</p>
+		<input id="Number" placeholder="Write number of nodes here">
+		<p>What is the starting-node?</p>
+		<input id="Start" placeholder="Enter the starting-node here">
+		<div id="costs_questions">
+		</div>
+		<button type="button" id="submit" 
+		onclick='
+			//hier krieg ich aus  den beiden input-Feldern die Werte, die ich für den Network-Konstruktor (anderes File)
+			//brauche
+			var num = document.getElementById("Number").value;
+			var start = document.getElementById("Start").value;
+
+			//hier erstelle ich dynamisch die nötige Anzahl an Eingabefeldern, aus denen ich im Konstruktor von 
+			//network die Werte einlese
+			for (var i = 0; i < num; i++) {
+				for (var j = 0; j < num; j++) {
+					var question = document.createElement("p");
+				        var node = document.createTextNode("Cost from " + (i + 1) + " to " + (j + 1) + ": ");
+				        question.appendChild(node);
+				        var append_to = document.getElementById("costs_questions");
+				        append_to.appendChild(question);
+				        var answer = document.createElement("input");
+				        answer.setAttribute("type", "text");
+				        answer.setAttribute("id", "inn");
+				        append_to.appendChild(answer);
+				}
+			}
+			
+
+			//hier ändere ich die Funktionalität des Buttos um. Beim nächsten Drücken soll nicht mehr das hier ausgeführt werden,
+			//sondern ein Objekt von Network.
+			var current = document.getElementById("submit");
+			current.onclick = function() {
+				//beim Nächsten Klicken komm ich noch hier rein (hab ich durch Ausgabe getestet), der Konstruktor wird jedoch nicht
+				//einmal aufgerufen!!! Ich steig da nicht durch was hier nicht passt
+				const n = new network(num, start);
+			}
+		'>Submit</button>
+		<div id="result"></div>
+
+	</body>
+</html>
